@@ -1,0 +1,14 @@
+⚡ QUICK FIX (run this first) == Run this safe recovery block:
+
+firewall-cmd --permanent --add-service=http
+firewall-cmd --permanent --add-service=https
+firewall-cmd --reload
+
+systemctl restart httpd || systemctl restart nginx
+
+
+🔍 If still not working == Send me:
+
+systemctl status httpd
+firewall-cmd --list-all
+ss -tulnp | grep -E '80|443'
