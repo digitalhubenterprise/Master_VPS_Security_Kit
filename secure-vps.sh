@@ -40,8 +40,9 @@ sed -i 's/^Port 22/Port 2468/' /etc/ssh/sshd_config
 
 grep -q "Port 2468" /etc/ssh/sshd_config || echo "Port 2468" >> /etc/ssh/sshd_config
 
-sed -i 's/^#PermitRootLogin.*/PermitRootLogin no/' /etc/ssh/sshd_config
-grep -q "PermitRootLogin no" /etc/ssh/sshd_config || echo "PermitRootLogin no" >> /etc/ssh/sshd_config
+# Keep root login enabled
+sed -i 's/^#PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config
+grep -q "PermitRootLogin yes" /etc/ssh/sshd_config || echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 
 # =========================
 # 5. Firewall rules
