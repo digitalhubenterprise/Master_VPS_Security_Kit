@@ -12,3 +12,12 @@ systemctl restart httpd || systemctl restart nginx
 systemctl status httpd
 firewall-cmd --list-all
 ss -tulnp | grep -E '80|443'
+
+💡 Real reason (based on your script)
+Your security kit:
+
+changed SSH port ✔
+enabled firewall ✔
+BUT did NOT explicitly open web ports ❌
+
+So firewall likely blocked your website traffic.
